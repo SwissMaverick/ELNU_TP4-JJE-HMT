@@ -1,0 +1,7 @@
+﻿  BaseDataEpromGenSig.c
+C:\Users\jerjeanelie\OneDrive - Education Vaud\ES\1ère année (redoublement)\2. ELNU\TP4\Programmation\GenerateData\GenerateData\BaseDataEpromGenSig.c(69,26): warning C4244: '=' : conversion de 'double' en 'unsigned char', perte possible de données
+C:\Users\jerjeanelie\OneDrive - Education Vaud\ES\1ère année (redoublement)\2. ELNU\TP4\Programmation\GenerateData\GenerateData\BaseDataEpromGenSig.c(76,26): warning C4244: '=' : conversion de 'double' en 'unsigned char', perte possible de données
+C:\Users\jerjeanelie\OneDrive - Education Vaud\ES\1ère année (redoublement)\2. ELNU\TP4\Programmation\GenerateData\GenerateData\BaseDataEpromGenSig.c(239,19): warning C4474: 'scanf_s' : trop d'arguments passés pour la chaîne de format
+C:\Users\jerjeanelie\OneDrive - Education Vaud\ES\1ère année (redoublement)\2. ELNU\TP4\Programmation\GenerateData\GenerateData\BaseDataEpromGenSig.c(239,19): message : les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 2 ont été fournis
+C:\Users\jerjeanelie\OneDrive - Education Vaud\ES\1ère année (redoublement)\2. ELNU\TP4\Programmation\GenerateData\GenerateData\BaseDataEpromGenSig.c(110,9): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  GenerateData.vcxproj -> C:\Users\jerjeanelie\OneDrive - Education Vaud\ES\1ère année (redoublement)\2. ELNU\TP4\Programmation\GenerateData\x64\Debug\GenerateData.exe

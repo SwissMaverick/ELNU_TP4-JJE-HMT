@@ -23,13 +23,16 @@
 
 #include <stdio.h>
 #include <math.h>
+#include "BaseDataEpromGenSig.h"
 
 //  _CRT_SECURE_NO_WARNINGS
 
 // Nom du fichier à générer 		**** A MODIFIER le nom de fichier ****
-char *FileName = "TestGR1.hex";
+char *FileName = "Signal_JJE_HMT.hex";
 
-#define NB_MAX_ECH 240
+#define NB_MAX_ECH_1 120
+#define NB_MAX_ECH_2 240
+#define	NB_MAX_ECH   240
 
 // Table des échantillons
 // Cette table est à remplir avec votre algorithme par la fonction
@@ -38,7 +41,7 @@ unsigned char TableEchantillons[NB_MAX_ECH];
 
 
 // Nom du groupe 				**** A MODIFIER la chaîne de caractère ****
-char *GroupeName = "Nom1-Nom2";
+char *GroupeName = "JJE-HMT";
 //  A adapter en commentant l'un ou l'autre
 const unsigned short MemStart = 0 ;						// mécanisme de reset
 // const unsigned short MemStart = 256 - NB_MAX_ECH ;		// mécanisme de recharge
@@ -50,19 +53,28 @@ const unsigned short MemStart = 0 ;						// mécanisme de reset
 // Le résulat est placé dans TableEchantillons
 void GenerateData (void)
 {
-	int i, T, t, f;
+	int i, t;					//Déclaration variables entières
+	double Result, f, T;					//Déclaration variables réelles
 
-	T = 480;
-	t = 0;
-	i = 0;
+	T = 480;	//Période à 480 car nous n'utilisons qu'un 1/2 sinus
+	t = 1;		//On démarre le compteur à 1
+	i = 0;		
 
-	f = 1 / T;
+	f = 1 / T;	//Calcul de la fréquence
 	
 	
-	for (i = 1; i <= NB_MAX_ECH; i++) 
+	for (t = 1; t <= NB_MAX_ECH_1; t++)						//On répète la boucle jusqu'à t = 120
 	{
-		
-		TableEchantillons[i] = i;	// pour contrôle
+		Result = 255 * sin(2 * PI * f * (t + 360)) + 255;	//Calcul du résultat en fonction de t
+		TableEchantillons[i] = Result;						//Résultat du calcul précédent inséré dans le tableau
+		i++;
+	}
+
+	for (t = 121; t <= NB_MAX_ECH_2; t++)					//On répète la boucle de t = 121 jusqu'à t = 240
+	{
+		Result = 255 * sin(2 * PI * f * (t + 120)) + 255;	//Calcul du résultat en fonction de t
+		TableEchantillons[i] = Result;						//Résultat du calcul précédent inséré dans le tableau
+		i++;
 	}
 
 } // GenerateData
