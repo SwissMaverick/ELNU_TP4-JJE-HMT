@@ -33,7 +33,6 @@ char *FileName = "Signal_JJE_HMT.hex";
 #define NB_MAX_ECH_1 120
 #define NB_MAX_ECH_2 240
 #define	NB_MAX_ECH   240
-#define T			 480		//Période à 480 car nous n'utilisons qu'un 1/2 sinus
 
 // Table des échantillons
 // Cette table est à remplir avec votre algorithme par la fonction
@@ -55,10 +54,11 @@ const unsigned short MemStart = 0 ;						// mécanisme de reset
 void GenerateData (void)
 {
 	int i, t;					//Déclaration variables entières
-	double Result, f;			//Déclaration variables réelles
+	double Result, f, T;			//Déclaration variables réelles
 
+	T = 480;	//Période à 480 car nous n'utilisons qu'un 1/2 sinus
 	t = 1;		//On démarre le compteur à 1
-	i = 0;		//i est l'adresse du tableau. On veut écrire notre premier résultat à l'adresse 0 du tableau
+	i = 1;		//i est l'adresse du tableau. On veut écrire notre premier résultat à l'adresse 0 du tableau
 
 	f = 1 / T;	//Calcul de la fréquence
 	
