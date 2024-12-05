@@ -58,7 +58,7 @@ void GenerateData (void)
 
 	T = 480;	//Période à 480 car nous n'utilisons qu'un 1/2 sinus
 	t = 1;		//On démarre le compteur à 1
-	i = 0;		
+	i = 0;		//i est l'adresse du tableau. On veut écrire notre premier résultat à l'adresse 0 du tableau
 
 	f = 1 / T;	//Calcul de la fréquence
 	
@@ -66,15 +66,15 @@ void GenerateData (void)
 	for (t = 1; t <= NB_MAX_ECH_1; t++)						//On répète la boucle jusqu'à t = 120
 	{
 		Result = 255 * sin(2 * PI * f * (t + 360)) + 255;	//Calcul du résultat en fonction de t
-		TableEchantillons[i] = Result;						//Résultat du calcul précédent inséré dans le tableau
-		i++;
+		TableEchantillons[i] = Result;						//Résultat du calcul précédent inséré dans le tableau à l'adresse i
+		i++;												//On incrémente i (adresse du tableau)
 	}
 
 	for (t = 121; t <= NB_MAX_ECH_2; t++)					//On répète la boucle de t = 121 jusqu'à t = 240
 	{
 		Result = 255 * sin(2 * PI * f * (t + 120)) + 255;	//Calcul du résultat en fonction de t
 		TableEchantillons[i] = Result;						//Résultat du calcul précédent inséré dans le tableau
-		i++;
+		i++;												//On incrémente i (adresse du tableau)
 	}
 
 } // GenerateData
